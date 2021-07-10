@@ -76,6 +76,7 @@ I have experiment with 4 different datasets(no processing dataset, normalized da
 
 ![Data augmentation][image4]
 
+With the normalized dataset, theoritically the data is standardized as a result training time and performance would be bettter. I can see that the training time for single channel grayscale dataset with dimension of (32x32x1) instead of (32x32x3), thus training time is much shortened, but still achieved the same performance result. 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -124,7 +125,10 @@ Then upgrade to LeNet 7 layers model
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an LeNet for the most part that was given, but I did add an additional convolution without a max pooling layer after it like in the udacity lesson.  I used the AdamOptimizer with a learning rate of 0.00095.  The epochs used was 27 while the batch size was 156.
+To train the model, I used an LeNet for the most part that was given, but I did add an additional convolution without a max pooling layer after it like in the udacity lesson.  I used the AdamOptimizer with a learning rate of 0.00095.  The epochs used was 27 while the batch size was 156. 
+
+At first, I started with batchsize-128 and epochs number - 27, the training result was less then 0.9, then keep increasing batchsize to 156. The result improve much better, accuracy result reach 0.93. And I also tried to explore with LeNet 7 layers instead of 5, the performance also improved a bit to 0.943.
+There was no much improvement when I changed the epoch number from 27 to 50, epoch 27 should be the best epoch number to save training time.  
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -139,6 +143,7 @@ Comparison between unnormalized vs normalizeddata:
 ** Test Accuracy = 0.903
 
 At first, I started with LeNet 5 layers and non preprocessed data. Then start tuning batchsize, learning rate. Then figure out that batchsize = 156 and rate = 0.0097 give the best result. 
+
 
 Secondly, I tried with LeNet Dropout and pre-processed data by applying grayscale convertion/normalization. I also repeat the same with LeNet 7 layers and single channel grayscale dataset. 
  
@@ -171,9 +176,10 @@ Here are the results of the prediction:
 | Go straight or left	|   Go straight or left							|
 | General caution   	|   General caution  							|
 
-The model was able to correctly guess 6 of the 6 traffic signs.
+The model was able to correctly guess 6 of the 6 traffic signs. However, the detection accuracy is only 0.833, much lesser than test set accuracy. The sign type 'No vehicles', detection probability is quite low, only 56%, because the number of trained images was lesser than other type. In order to improve the accuracy of new detection, I may need to improve training dataset by data augmentation or collect more data from the real scenarios.
 
 ![My prediction][image8] 
+
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
@@ -192,6 +198,10 @@ The model was able to correctly guess 6 of the 6 traffic signs.
 ![Probability_3][image9d] 
 ![Probability_4][image9e] 
 ![Probability_5][image9f] 
+
+My traffic sign 1 - Speed limit 30kmh, detection probability is 86%.
+My traffic sign 2 + 3 + 5 + 6 - detection probability ( 94%, 98%, 96% and 100%)is quite good, much better than the test set, because of the quality of the traffic images and details features have the good matches with training set. 
+My traffice sign 4 - No vehicles, detection probability is pretty low, 56%. 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
