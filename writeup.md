@@ -150,8 +150,9 @@ Here are the results of the prediction:
 | Go straight or left	|   Go straight or left							|
 | General caution   	|   General caution  							|
 
-
 The model was able to correctly guess 6 of the 6 traffic signs.
+
+![My prediction][image8] 
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
@@ -163,6 +164,13 @@ The model was able to correctly guess 6 of the 6 traffic signs.
 | .56	      			| No vehicles					 				|
 | .96				    | Go straight or left     						|
 | .100				    | General caution      							|
+
+![Probability_0][image9a] 
+![Probability_1][image9b] 
+![Probability_2][image9c] 
+![Probability_3][image9d] 
+![Probability_4][image9e] 
+![Probability_5][image9f] 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
