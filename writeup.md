@@ -94,33 +94,33 @@ My final model consisted of the following layers:
 |Fatten                 | To connect to fully-connected layers  |
 |Fully-connected Layer 1|                            | 400      |
 |RELU                   |                            |          | 
-|Dropout                | 0.6 keep probability       |          |
+|Dropout                | 0.5 keep probability       |          |
 |Fully-connected Layer 2|                            | 120      |
 |RELU                   |                            |          |
-|Dropout                | 0.6 keep probability       |          |
+|Dropout                | 0.5 keep probability       |          |
 |Fully-connected Layer 3|                            | 43       |
 
 Then upgrade to LeNet 7 layers model
 
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
+| Layer         		|     Description	        					| Output  |
+|:---------------------:|:---------------------------------------------:|----------|
+| Input         		| 32x32x3 RGB image   							|           |
+| Convolution 5x5     	| 1x1 stride, valid padding	                    | 28x28x6   | 
 | RELU					|												|
-| Convolution 5x5     	| 2x2 stride, valid padding, outputs 14x14x10 	|
-| RELU					|												|
-| Convolution 5x5     	| 1x1 stride, valid padding, outputs 8x8x16 	|
-| RELU					|												|
-| Max Pooling       	| 2x2 stride, valid padding, outputs 4x4x16 	|
-| Flatten				|	outputs 256									|
-| Fully Connected     	| Input 256 and outputs 120                 	|
-| RELU					|												|
-| Dropout				|	keep_prob=0.5								|
-| Fully Connected     	| Inputs 120 and outputs 100                 	|
-| RELU					|												|
-| Fully Connected     	| Inputs 120 and outputs 100                 	|
-| RELU					|												|
-| Fully Connected     	| Inputs 84 and outputs 43                  	|
+| Convolution 5x5     	| 2x2 stride, valid padding                  	| 14x14x10  |
+| RELU					|												||
+| Convolution 5x5     	| 1x1 stride, valid padding 	                | 8x8x16 |
+| RELU					|												||
+| Max Pooling       	| 2x2 stride, valid padding  	                | 4x4x16|
+| Flatten				|	outputs 256									||
+| Fully Connected     	| Input 256 and outputs 120                 	| 120 |
+| RELU					|												||
+| Dropout				|	keep_prob=0.5								||
+| Fully Connected     	| Inputs 120 and outputs 100                 	| 100 |
+| RELU					|												| 
+| Fully Connected     	| Inputs 120 and outputs 100                 	| 100 |
+| RELU					|												||
+| Fully Connected     	| Inputs 84 and outputs 43                  	| 43|
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
